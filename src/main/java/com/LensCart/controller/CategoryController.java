@@ -29,5 +29,11 @@ public class CategoryController {
         categoryService.deleteCategory(id);
     }
 
+    @PutMapping("/{categoryId}/product/{productId}")
+    public void enrollCategory(@PathVariable int categoryId, @PathVariable int productId){
+        categoryService.enrollCategory(categoryId,productId);
+
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.LensCart.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,7 +15,14 @@ public class Category {
     private Integer categoryId;
     private String categoryName;
 
+
     @OneToMany(mappedBy = "category")
     private List<Product> products;
+
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
 
 }

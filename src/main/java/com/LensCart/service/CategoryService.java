@@ -1,7 +1,9 @@
 package com.LensCart.service;
 
 import com.LensCart.Repository.CategoryRepository;
+import com.LensCart.Repository.ProductRepository;
 import com.LensCart.entity.Category;
+import com.LensCart.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,8 @@ import java.util.List;
 public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
+    ProductRepository productRepository;
 
     public void addCategory(Category category){
         categoryRepository.save(category);
@@ -20,5 +24,12 @@ public class CategoryService {
     }
     public  void deleteCategory(int id){
         categoryRepository.deleteById(id);
+    }
+
+    public void enrollCategory(int categoryId, int productId) {
+        Category category= categoryRepository.findById(categoryId).get();
+        Product product= productRepository.findById(productId).get();
+        category.addProduct(product);
+        categoryRepository.save(category);
     }
 }

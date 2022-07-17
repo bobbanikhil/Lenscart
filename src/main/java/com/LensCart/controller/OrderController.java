@@ -30,5 +30,12 @@ public class OrderController {
         orderService.deleteOrder(id);
     }
 
+    @PutMapping("/{orderId}/product/{productId}")
+    public void placeOrder(@PathVariable int orderId, @PathVariable int productId){
+        orderService.placeOrder(orderId,productId);
+
+    }
+
+
 
 }

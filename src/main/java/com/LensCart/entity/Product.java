@@ -1,5 +1,6 @@
 package com.LensCart.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,9 +15,12 @@ public class Product {
     private String productName;
     private String prize;
 
-    @ManyToOne
+
+    @ManyToOne()
+    @JoinColumn(name = "category_id",referencedColumnName = "categoryId")
     private Category category;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "products")
     private List<Orders> orders;
 

@@ -20,8 +20,7 @@ public class Orders {
     private List<Product> products;
 
 
-
-
-
-
+    public void putProduct(Product product) {
+        products.add(product);
+    }
 }
