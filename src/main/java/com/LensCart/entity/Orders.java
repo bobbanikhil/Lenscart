@@ -13,6 +13,13 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int orderId;
 
+    @ManyToMany
+    @JoinTable(name ="ordered_products",
+            joinColumns = @JoinColumn(name = "orders_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_productId"))
+    private List<Product> products;
+
+
 
 
 

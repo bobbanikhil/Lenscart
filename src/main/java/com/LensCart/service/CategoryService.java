@@ -18,4 +18,7 @@ public class CategoryService {
     public List<Category> getAllCategory(){
         return categoryRepository.findAll();
     }
+    public  void deleteCategory(int id){
+        categoryRepository.deleteById(id);
+    }
 }

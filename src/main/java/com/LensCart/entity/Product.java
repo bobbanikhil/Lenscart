@@ -3,6 +3,7 @@ package com.LensCart.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,6 +16,9 @@ public class Product {
 
     @ManyToOne
     private Category category;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Orders> orders;
 
 
 }
