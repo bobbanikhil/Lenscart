@@ -24,5 +24,11 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private List<Orders> orders;
 
+    public Category getCategory() {
+        return category;
+    }
 
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
