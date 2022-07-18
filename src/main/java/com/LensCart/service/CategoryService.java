@@ -29,7 +29,8 @@ public class CategoryService {
     public void enrollCategory(int categoryId, int productId) {
         Category category= categoryRepository.findById(categoryId).get();
         Product product= productRepository.findById(productId).get();
-        category.addProduct(product);
+        product.setCategory(category);
         categoryRepository.save(category);
+        productRepository.save(product);
     }
 }

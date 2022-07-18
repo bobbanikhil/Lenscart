@@ -15,14 +15,12 @@ public class Category {
     private Integer categoryId;
     private String categoryName;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 
 
-    public void addProduct(Product product) {
-        products.add(product);
-    }
+
 
 
 }
